@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Check } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 
 const Pricing = () => {
   return (
@@ -10,63 +10,126 @@ const Pricing = () => {
           Transparent Pricing
         </h2>
         <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-          No hidden fees, no surprises. Get your professional website completely free, with optional premium features available.
+          No hidden fees or surprise charges. Just straightforward pricing that makes sense for your business.
         </p>
         
-        <div className="bg-blue-600 rounded-2xl p-12 text-white max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold mb-4">Professional Business Website</h3>
-            <div className="text-6xl font-bold mb-4">
-              $0 <span className="text-2xl font-normal">startup cost</span>
-            </div>
+        <div className="bg-blue-600 rounded-2xl p-8 text-white max-w-6xl mx-auto mb-12 relative">
+          <div className="absolute top-6 right-6">
+            <span className="bg-white text-blue-600 px-4 py-2 rounded-full text-sm font-semibold">
+              Most Popular
+            </span>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 text-left">
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Website Features:</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> Custom Design</li>
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> Mobile Responsive</li>
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> Contact Forms</li>
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> SEO Optimized</li>
-              </ul>
+          <div className="text-left mb-8">
+            <h3 className="text-2xl font-bold mb-4">Professional Business Website</h3>
+            <div className="text-5xl font-bold mb-2">
+              $0 <span className="text-xl font-normal">upfront cost</span>
             </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Optional Hosting & Support:</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> Secure Hosting</li>
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> SSL Certificate</li>
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> Daily Backups</li>
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> 24/7 Support</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Advanced Features Available:</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> E-commerce Integration</li>
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> Online Booking</li>
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> Custom Functionality</li>
-                <li className="flex items-center"><Check className="w-5 h-5 mr-2" /> Marketing Tools</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="text-center mt-8">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
-              Start Now - It's Free!
-            </button>
           </div>
         </div>
         
-        <div className="mt-8 text-center">
-          <p className="text-gray-600">
-            <strong>Limited Availability:</strong> We're Only Creating 10 Free Websites Per Month In Your Area
-          </p>
-          <p className="text-sm text-gray-500 mt-2">
-            Apply now to secure your spot before they're all taken. Average wait time for new areas is 2-3 weeks.
-          </p>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* Website Design & Development */}
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">
+              Website Design & Development
+            </h3>
+            
+            <div className="mb-6">
+              <div className="flex items-center mb-4">
+                <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                  <X className="w-4 h-4 text-red-500" />
+                </div>
+                <span className="text-gray-500 line-through">$1,500</span>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <Check className="w-4 h-4 text-green-500" />
+                </div>
+                <span className="text-2xl font-bold text-gray-900">$0</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Website Hosting & Support */}
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">
+              Website Hosting & Support
+            </h3>
+            
+            <div className="mb-6">
+              <div className="flex items-center mb-4">
+                <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <Check className="w-4 h-4 text-green-500" />
+                </div>
+                <span className="text-2xl font-bold text-gray-900">$20/month</span>
+              </div>
+            </div>
+            
+            <ul className="space-y-3 text-left">
+              <li className="flex items-center">
+                <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                <span className="text-gray-600">Secure, reliable hosting</span>
+              </li>
+              <li className="flex items-center">
+                <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                <span className="text-gray-600">Regular security updates</span>
+              </li>
+              <li className="flex items-center">
+                <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                <span className="text-gray-600">Technical support</span>
+              </li>
+              <li className="flex items-center">
+                <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                <span className="text-gray-600">Regular backups</span>
+              </li>
+            </ul>
+          </div>
+          
+          {/* Website Updates & Changes */}
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">
+              Website Updates & Changes
+            </h3>
+            
+            <div className="mb-6">
+              <div className="flex items-center mb-4">
+                <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <Check className="w-4 h-4 text-green-500" />
+                </div>
+                <div>
+                  <div className="text-lg font-bold text-gray-900">Starting at $10 per</div>
+                  <div className="text-lg font-bold text-gray-900">change</div>
+                </div>
+              </div>
+            </div>
+            
+            <ul className="space-y-3 text-left">
+              <li className="flex items-center">
+                <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                <span className="text-gray-600">Content updates</span>
+              </li>
+              <li className="flex items-center">
+                <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                <span className="text-gray-600">Design modifications</span>
+              </li>
+              <li className="flex items-center">
+                <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                <span className="text-gray-600">Feature additions</span>
+              </li>
+              <li className="flex items-center">
+                <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                <span className="text-gray-600">Quick turnaround</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="mt-12">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-lg text-xl font-semibold transition-colors">
+            Claim Your Free Website Now
+          </button>
         </div>
       </div>
     </section>
