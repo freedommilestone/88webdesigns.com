@@ -8,21 +8,45 @@ const Testimonials = () => {
       business: "Taste of Italy Restaurant",
       text: "Our new website has increased reservations by 32%. The online menu and reservation system have been game-changers for our business.",
       avatar: "JM",
-      avatarColor: "bg-blue-100"
+      avatarColor: "bg-blue-100",
+      beforeImage: {
+        title: "Basic Text Page",
+        content: ["Hours: Mon-Fri 9-5", "Call: 555-0123", "Pizza • Pasta • Wine"]
+      },
+      afterImage: {
+        title: "Professional Restaurant Site",
+        content: ["Online Menu", "Reservations", "Photo Gallery"]
+      }
     },
     {
       name: "Sarah Wilson",
       business: "Elite Plumbing Services",
       text: "The online booking system has completely transformed how we schedule appointments. We're getting more leads with less effort.",
       avatar: "SW",
-      avatarColor: "bg-green-100"
+      avatarColor: "bg-green-100",
+      beforeImage: {
+        title: "Phone Only Bookings",
+        content: ["Call for Service", "Emergency: 555-0456", "Licensed Plumber"]
+      },
+      afterImage: {
+        title: "Online Booking System",
+        content: ["24/7 Scheduling", "Service Areas", "Instant Quotes"]
+      }
     },
     {
       name: "Robert Lee",
       business: "Urban Threads Boutique",
       text: "Our product showcase looks amazing and customers love browsing our collection online. Best investment we've made this year.",
       avatar: "RL",
-      avatarColor: "bg-yellow-100"
+      avatarColor: "bg-yellow-100",
+      beforeImage: {
+        title: "Store Location Only",
+        content: ["Visit Our Store", "123 Main St", "Fashion • Accessories"]
+      },
+      afterImage: {
+        title: "Online Store & Gallery",
+        content: ["Product Catalog", "Online Shopping", "Style Guide"]
+      }
     }
   ];
 
@@ -51,18 +75,37 @@ const Testimonials = () => {
               
               <p className="text-gray-700 mb-6 text-left">"{testimonial.text}"</p>
               
-              {/* Before/After Images */}
+              {/* Before/After Website Mockups */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <div className="text-center text-sm text-gray-600 mb-2 font-medium">Before</div>
-                  <div className="bg-gray-300 rounded-lg h-24 flex items-center justify-center">
-                    <div className="w-full h-full bg-gray-300 rounded-lg"></div>
+                  <div className="bg-gray-300 rounded-lg h-32 p-3 flex flex-col justify-between">
+                    <div className="bg-gray-400 h-2 w-16 rounded mb-2"></div>
+                    <div className="space-y-1">
+                      {testimonial.beforeImage.content.map((line, i) => (
+                        <div key={i} className="bg-gray-500 h-1.5 rounded" style={{width: `${60 + i * 15}%`}}></div>
+                      ))}
+                    </div>
+                    <div className="text-xs text-gray-600 font-medium">{testimonial.beforeImage.title}</div>
                   </div>
                 </div>
                 <div>
                   <div className="text-center text-sm text-gray-600 mb-2 font-medium">After</div>
-                  <div className="bg-blue-200 rounded-lg h-24 flex items-center justify-center">
-                    <div className="w-full h-full bg-blue-200 rounded-lg"></div>
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg h-32 p-3 flex flex-col justify-between">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="bg-blue-400 h-2 w-20 rounded"></div>
+                      <div className="flex space-x-1">
+                        <div className="w-1.5 h-1.5 bg-blue-300 rounded"></div>
+                        <div className="w-1.5 h-1.5 bg-blue-300 rounded"></div>
+                        <div className="w-1.5 h-1.5 bg-blue-300 rounded"></div>
+                      </div>
+                    </div>
+                    <div className="space-y-1">
+                      {testimonial.afterImage.content.map((line, i) => (
+                        <div key={i} className="bg-blue-300 h-1.5 rounded" style={{width: `${70 + i * 10}%`}}></div>
+                      ))}
+                    </div>
+                    <div className="text-xs text-blue-700 font-medium">{testimonial.afterImage.title}</div>
                   </div>
                 </div>
               </div>
