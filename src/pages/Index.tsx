@@ -6,6 +6,7 @@ import HowItWorks from '../components/HowItWorks';
 import Features from '../components/Features';
 import Pricing from '../components/Pricing';
 import FAQ from '../components/FAQ';
+import RecentlyClaimed from '../components/RecentlyClaimed';
 import Footer from '../components/Footer';
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
       <Features />
       <Pricing />
       <FAQ />
+      <RecentlyClaimed />
       <Footer />
     </div>
   );
