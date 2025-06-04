@@ -1,7 +1,17 @@
-
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 
 const Testimonials = () => {
+  const [animate, setAnimate] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isIntersecting = useIntersectionObserver(sectionRef, { threshold: 0.1 }, true);
+
+  useEffect(() => {
+    if (isIntersecting) {
+      setAnimate(true);
+    }
+  }, [isIntersecting]);
+
   const testimonials = [
     {
       name: "John Martinez",
@@ -51,20 +61,37 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section 
+      ref={sectionRef} 
+      className="py-16 sm:py-20 px-4 bg-white overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
-          Trusted by Local Businesses Like Yours
+        <h2
+          className={`text-4xl font-bold text-gray-900 mb-4 transition-all duration-700 ease-in-out ${
+            animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          Real Results from Real Businesses
         </h2>
-        <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+        <p
+          className={`text-xl text-gray-600 mb-12 max-w-3xl mx-auto transition-all duration-700 ease-in-out delay-100 ${
+            animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           Join the <span className="text-blue-600 font-semibold">237 local businesses</span> that have already claimed their free website
         </p>
         
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-50 rounded-2xl p-8">
+            <div
+              key={index}
+              className={`flex flex-col bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-lg transition-all duration-700 ease-in-out hover:-translate-y-1 hover:shadow-2xl ${
+                animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: animate ? `${200 + index * 150}ms` : '0ms' }}
+            >
               <div className="flex items-center mb-6">
-                <div className={`w-12 h-12 ${testimonial.avatarColor} rounded-full flex items-center justify-center text-gray-700 font-bold mr-4`}>
+                <div className={`w-12 h-12 ${testimonial.avatarColor} rounded-full flex items-center justify-center text-gray-700 font-bold mr-4 flex-shrink-0`}>
                   {testimonial.avatar}
                 </div>
                 <div className="text-left">
@@ -73,15 +100,16 @@ const Testimonials = () => {
                 </div>
               </div>
               
-              <p className="text-gray-700 mb-6 text-left">"{testimonial.text}"</p>
+              <p className="text-gray-700 mb-6 text-left h-24 overflow-hidden">
+                "{testimonial.text}"
+              </p>
               
-              {/* Before/After Website Mockups */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 mt-auto">
                 <div>
                   <div className="text-center text-sm text-gray-600 mb-2 font-medium">Before</div>
                   <div className="bg-gray-300 rounded-lg h-32 p-3 flex flex-col justify-between">
                     <div className="bg-gray-400 h-2 w-16 rounded mb-2"></div>
-                    <div className="space-y-1">
+                    <div className="space-y-1 flex-grow">
                       {testimonial.beforeImage.content.map((line, i) => (
                         <div key={i} className="bg-gray-500 h-1.5 rounded" style={{width: `${60 + i * 15}%`}}></div>
                       ))}
@@ -100,7 +128,7 @@ const Testimonials = () => {
                         <div className="w-1.5 h-1.5 bg-blue-300 rounded"></div>
                       </div>
                     </div>
-                    <div className="space-y-1">
+                    <div className="space-y-1 flex-grow">
                       {testimonial.afterImage.content.map((line, i) => (
                         <div key={i} className="bg-blue-300 h-1.5 rounded" style={{width: `${70 + i * 10}%`}}></div>
                       ))}

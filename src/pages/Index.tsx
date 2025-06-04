@@ -1,6 +1,6 @@
-
 import React from 'react';
 import Hero from '../components/Hero';
+// import TrustedByCarousel from '../components/TrustedByCarousel'; // Removed this import
 import Testimonials from '../components/Testimonials';
 import HowItWorks from '../components/HowItWorks';
 import Features from '../components/Features';
@@ -13,6 +13,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Hero />
+      {/* <TrustedByCarousel /> Removed this instance */}
       <Testimonials />
       <HowItWorks />
       <Features />

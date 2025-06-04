@@ -1,13 +1,24 @@
-
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 
 const FAQ = () => {
+  const [animate, setAnimate] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  // A lower threshold like 0.05 or 0.1 means animation triggers sooner when scrolling into view.
+  const isIntersecting = useIntersectionObserver(sectionRef, { threshold: 0.1 }, true);
+
+  useEffect(() => {
+    if (isIntersecting) {
+      setAnimate(true);
+    }
+  }, [isIntersecting]);
+
   const faqs = [
     {
       question: "Why are you building websites for free?",
@@ -40,21 +51,39 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section 
+      ref={sectionRef} 
+      className="py-16 sm:py-20 px-4 bg-gray-50 overflow-hidden"
+    >
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
+        <div
+          className={`text-center mb-12 transition-all duration-700 ease-in-out ${
+            animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-gray-600">
+          <p
+            className={`text-xl text-gray-600 transition-all duration-700 ease-in-out delay-100 ${
+              animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             Find answers to the most common questions about our free website service.
           </p>
         </div>
         
         <Accordion type="single" collapsible className="space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold text-gray-900 hover:text-blue-600">
+            <AccordionItem
+              key={index}
+              value={`item-${index}`}
+              className={`bg-white rounded-lg px-6 transition-all duration-700 ease-in-out hover:-translate-y-0.5 hover:shadow-md ${
+                animate ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+              style={{ transitionDelay: animate ? `${200 + index * 100}ms` : '0ms' }}
+            >
+              <AccordionTrigger className="text-left font-semibold text-gray-900 hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-gray-600 pb-6">
