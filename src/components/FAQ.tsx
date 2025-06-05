@@ -52,6 +52,7 @@ const FAQ = () => {
 
   return (
     <section 
+      id="faq"
       ref={sectionRef} 
       className="py-16 sm:py-20 px-4 bg-gray-50 overflow-hidden"
     >

@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import SqueezePage from "./pages/SqueezePage";
 import ConfirmationPage from "./pages/ConfirmationPage";
+import BrowseDesigns from "./pages/BrowseDesigns";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/claim-free-website" element={<SqueezePage />} />
             <Route path="/thank-you" element={<ConfirmationPage />} />
+            <Route path="/browse-designs" element={<BrowseDesigns />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

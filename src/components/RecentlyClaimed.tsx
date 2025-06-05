@@ -110,6 +110,7 @@ const RecentlyClaimed = () => {
 
   return (
     <section 
+      id="recently-claimed"
       ref={sectionRef} 
       className="py-16 sm:py-20 px-4 bg-gray-50 overflow-hidden"
     >
@@ -249,7 +250,7 @@ const RecentlyClaimed = () => {
         >
           <Link to="/claim-free-website">
             <Button 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-lg text-xl font-semibold transition-colors"
             >
               Claim Your Free Website
             </Button>

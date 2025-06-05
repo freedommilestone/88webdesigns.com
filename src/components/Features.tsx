@@ -40,6 +40,7 @@ const Features = () => {
 
   return (
     <section 
+      id="features"
       ref={sectionRef} 
       className="py-16 sm:py-20 px-4 bg-gray-50 overflow-hidden"
     >

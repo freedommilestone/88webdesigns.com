@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 // import TrustedByCarousel from '../components/TrustedByCarousel'; // Removed this import
 import Testimonials from '../components/Testimonials';
@@ -11,7 +12,8 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white scroll-smooth">
+      <Navbar />
       <Hero />
       {/* <TrustedByCarousel /> Removed this instance */}
       <Testimonials />

@@ -35,6 +35,7 @@ const HowItWorks = () => {
 
   return (
     <section 
+      id="how-it-works"
       ref={sectionRef} 
       className="py-16 sm:py-20 px-4 bg-white overflow-hidden"
     >

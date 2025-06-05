@@ -17,7 +17,7 @@ const Hero = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="bg-gradient-to-br from-blue-50 to-white py-16 sm:py-20 px-4 overflow-hidden"
+      className="bg-gradient-to-br from-blue-50 to-white pt-24 pb-16 sm:pb-20 px-4 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
